@@ -1,0 +1,337 @@
+/* Rainy Paper — periwinkle wash, ice-blue glass, and deep indigo ink.
+   All overrides are scoped to light mode; disable this snippet to revert. */
+body.theme-light {
+  color-scheme: light;
+  --background-primary: #edf2fc;
+  --background-primary-alt: #e2eafb;
+  --background-secondary: #b8c9ea;
+  --background-secondary-alt: #a9bfe4;
+  --background-modifier-border: #91a8d0;
+  --background-modifier-border-hover: #637fac;
+  --background-modifier-border-focus: #315fb0;
+  --background-modifier-form-field: #f0f6ff;
+  --background-modifier-form-field-highlighted: #ffffff;
+  --background-modifier-hover: rgba(36, 73, 139, 0.10);
+  --background-modifier-active-hover: rgba(36, 73, 139, 0.16);
+  --background-modifier-cover: rgba(15, 34, 77, 0.30);
+  --text-normal: #182e56;
+  --text-muted: #344a70;
+  --text-faint: #40577c;
+  --text-on-accent: #ffffff;
+  --text-accent: #244f9e;
+  --text-accent-hover: #173b80;
+  --text-selection: rgba(57, 104, 187, 0.22);
+  --interactive-normal: #e5f0ff;
+  --interactive-hover: #c8dcf7;
+  --interactive-accent: #315fb0;
+  --interactive-accent-hover: #244a91;
+  --interactive-accent-rgb: 49, 95, 176;
+  --color-accent: #315fb0;
+  --color-accent-1: #244a91;
+  --color-accent-2: #173b80;
+  --icon-color: #2e4b7d;
+  --icon-color-hover: #193e86;
+  --icon-color-active: #244f9e;
+  --icon-color-focused: #244f9e;
+  --icon-opacity: 1;
+  --icon-opacity-hover: 1;
+  --icon-opacity-active: 1;
+  --nav-item-color: #223f6e;
+  --nav-item-color-hover: #172f5b;
+  --nav-item-color-active: #17396f;
+  --nav-item-background-hover: rgba(36, 73, 139, 0.10);
+  --nav-item-background-active: #d2eaff;
+  --nav-collapse-icon-color: #3d5b88;
+  --nav-collapse-icon-color-collapsed: #3d5b88;
+  --nav-indentation-guide-color: #7b97c3;
+  --tab-text-color: #344a70;
+  --tab-text-color-focused: #223f6e;
+  --tab-text-color-active: #17396f;
+  --tab-text-color-focused-active: #17396f;
+  --tab-background-active: #edf2fc;
+  --tab-outline-color: #91a8d0;
+  --divider-color: #91a8d0;
+  --ribbon-background: #c4d6f0;
+  --ribbon-background-collapsed: #c4d6f0;
+  --titlebar-background: #c4d6f0;
+  --titlebar-background-focused: #c4d6f0;
+  --frame-background: #c4d6f0;
+  --titlebar-text-color: #223f6e;
+  --h1-color: #1b3d79;
+  --h2-color: #294e8b;
+  --h3-color: #35598e;
+  --link-color: #244f9e;
+  --link-color-hover: #173b80;
+  --link-external-color: #244f9e;
+  --code-background: #dfe9fa;
+  --code-normal: #294577;
+  --blockquote-border-color: #6c98d0;
+  --scrollbar-bg: rgba(45, 79, 117, 0.22);
+  --scrollbar-thumb-bg: rgba(45, 79, 117, 0.36);
+  --scrollbar-active-thumb-bg: rgba(45, 79, 117, 0.55);
+  --rainy-glass: rgba(236, 246, 255, 0.36);
+  --rainy-chrome: rgba(240, 248, 255, 0.46);
+  --rainy-floating: rgba(237, 246, 255, 0.86);
+  --rainy-paper: rgba(242, 247, 255, 0.72);
+  --rainy-paper-blur: 22px;
+  --rainy-sheen: linear-gradient(135deg, rgba(255, 255, 255, 0.32), rgba(255, 255, 255, 0.04) 45%, rgba(197, 230, 255, 0.12));
+  --rainy-edge: rgba(229, 250, 255, 0.88);
+  --rainy-shadow: 0 12px 36px rgba(24, 49, 99, 0.22);
+  --radius-s: 6px;
+  --radius-m: 10px;
+  --radius-l: 14px;
+}
+
+/* Explicit surfaces prevent white icons from landing on a pale ribbon. */
+body.theme-light,
+.theme-light .app-container,
+.theme-light .titlebar {
+  background-color: var(--frame-background);
+}
+/* Match the ribbon's top corner cap to the surrounding blue chrome. */
+.theme-light .workspace-ribbon.mod-left::before {
+  background: var(--ribbon-background);
+  border-bottom: 1px solid var(--divider-color);
+  box-shadow: none;
+}
+.theme-light .workspace {
+  /* Broad color variation gives translucent surfaces something to reveal. */
+  background:
+    radial-gradient(ellipse at 2% 8%, rgba(226, 252, 255, 0.86), transparent 42%),
+    radial-gradient(ellipse at 24% 90%, rgba(143, 166, 222, 0.55), transparent 52%),
+    radial-gradient(ellipse at 90% 0%, rgba(218, 215, 249, 0.68), transparent 48%),
+    #b2c9eb;
+}
+.theme-light .workspace-split:is(.mod-left-split, .mod-right-split) {
+  background: var(--rainy-sheen), var(--rainy-glass);
+  /* Structural ancestors must not change the positioning of fixed controls. */
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+  box-shadow: inset 1px 0 0 rgba(255, 255, 255, 0.58), inset -1px 0 0 rgba(255, 255, 255, 0.44), 4px 0 18px rgba(38, 66, 115, 0.06);
+}
+.theme-light .workspace-ribbon {
+  /* Blur creates a containing block for the fixed top toggle/corner cap.
+     Use the matching solid tint here to retain Obsidian's native positioning. */
+  background: var(--ribbon-background);
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+  border-right: 1px solid #91a8d0;
+  box-shadow: none;
+}
+.theme-light .workspace-split:is(.mod-left-split, .mod-right-split) :is(.workspace-leaf, .workspace-leaf-content, .workspace-tabs, .workspace-tab-container) {
+  background: transparent;
+}
+.theme-light .workspace-split.mod-root,
+.theme-light .workspace-split.mod-root > .workspace-tabs {
+  background: transparent;
+}
+.theme-light :is(.workspace-tab-header-container, .view-header, .status-bar, .workspace-sidedock-vault-profile) {
+  background: var(--rainy-sheen), var(--rainy-chrome);
+  border-color: rgba(92, 124, 174, 0.30);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.72), inset 0 -1px 0 rgba(255, 255, 255, 0.24);
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+}
+.theme-light .workspace-tab-header.is-active {
+  background: var(--rainy-sheen), rgba(236, 250, 255, 0.68);
+  box-shadow: inset 0 1px 0 #f4ffff, inset 1px 0 0 rgba(255, 255, 255, 0.70), inset 0 -1px 0 rgba(118, 158, 207, 0.38), 0 3px 10px rgba(28, 59, 114, 0.12);
+}
+.theme-light :is(.clickable-icon, .view-action, .workspace-ribbon-tab, .workspace-tab-header-inner-icon, .workspace-tab-header-inner-close-button) {
+  color: var(--icon-color);
+  opacity: 1;
+  border-radius: 7px;
+}
+.theme-light :is(.clickable-icon, .view-action, .workspace-ribbon-tab):hover {
+  color: #193e86;
+  background-color: #c4dcfa;
+  box-shadow: inset 0 1px 0 var(--rainy-edge);
+}
+.theme-light :is(.clickable-icon.is-active, .workspace-ribbon-tab.is-active) {
+  color: #17396f;
+  background-color: #d2eaff;
+}
+.theme-light :is(.nav-file-title, .nav-folder-title) {
+  border-radius: 7px;
+}
+.theme-light :is(.nav-file-title, .nav-folder-title):hover {
+  color: #172f5b;
+  background-color: #c4dafa;
+}
+.theme-light :is(.nav-file-title, .nav-folder-title).is-active {
+  color: #17396f;
+  background: var(--rainy-sheen), rgba(226, 245, 255, 0.72);
+  font-weight: 600;
+  box-shadow: inset 3px 0 0 #315fb0, inset 0 1px 0 #efffff, inset 0 -1px 0 #9cbee6, 0 2px 7px rgba(28, 59, 114, 0.12);
+}
+.theme-light :is(.nav-file-tag, .nav-folder-collapse-indicator, .workspace-sidedock-vault-profile .workspace-vault-name) {
+  color: #344a70;
+  opacity: 1;
+}
+
+/* Actual backdrop blur is limited to floating surfaces, not layout ancestors. */
+.theme-light :is(.modal, .menu, .suggestion-container, .popover, .prompt) {
+  background: var(--rainy-sheen), var(--rainy-floating);
+  border: 1px solid rgba(248, 255, 255, 0.82);
+  border-radius: 14px;
+  box-shadow: inset 0 1px 0 #efffff, inset 0 -1px 0 rgba(129, 161, 207, 0.45), var(--rainy-shadow);
+  backdrop-filter: blur(32px) saturate(145%);
+  -webkit-backdrop-filter: blur(32px) saturate(145%);
+}
+.theme-light .modal .vertical-tab-header {
+  background: rgba(175, 196, 233, 0.62);
+}
+.theme-light :is(.suggestion-item.is-selected, .menu-item.selected, .menu-item:not(.is-disabled):hover, .vertical-tab-nav-item.is-active) {
+  color: #17396f;
+  background-color: #d2eaff;
+  border-radius: 6px;
+}
+.theme-light :is(input:not([type='checkbox']):not([type='range']), textarea, select, .dropdown) {
+  color: #182e56;
+  border-color: #637fac;
+  background-color: #f0f6ff;
+}
+.theme-light :is(input, textarea)::placeholder {
+  color: #40577c;
+  opacity: 1;
+}
+/* Note properties blend into the glass paper instead of using white form fills. */
+.theme-light .metadata-container {
+  --metadata-background: transparent;
+  --metadata-background-hover: rgba(154, 183, 225, 0.12);
+  --metadata-background-active: rgba(154, 183, 225, 0.20);
+  --background-modifier-form-field: transparent;
+  --background-modifier-form-field-highlighted: rgba(185, 211, 243, 0.38);
+}
+.theme-light .metadata-container .metadata-property :is(input:not([type='checkbox']):not([type='range']), textarea) {
+  color: var(--text-normal);
+  background-color: rgba(173, 198, 234, 0.12);
+  box-shadow: none;
+  border-color: transparent;
+  border-radius: 5px;
+}
+.theme-light .metadata-container .metadata-property :is(input:not([type='checkbox']):not([type='range']), textarea):hover {
+  background-color: rgba(173, 198, 234, 0.22);
+}
+.theme-light .metadata-container .metadata-property :is(input:not([type='checkbox']):not([type='range']), textarea):focus {
+  background-color: rgba(185, 211, 243, 0.38);
+}
+.theme-light button:not(.mod-cta):not(.mod-warning):not(.clickable-icon):not(.view-action) {
+  color: #223f6e;
+  background-color: #dceeff;
+  box-shadow: inset 0 1px 0 #efffff, inset 0 -1px 0 #9cbee6, 0 2px 5px rgba(28, 59, 114, 0.12);
+}
+.theme-light button:not(.mod-cta):not(.mod-warning):not(.clickable-icon):not(.view-action):hover {
+  background-color: #c4dafa;
+}
+/* Header navigation and more-menu actions are unframed icon buttons. */
+.theme-light .view-header button:is(.clickable-icon, .view-action) {
+  color: var(--icon-color);
+  background: transparent;
+  border: none;
+  box-shadow: none;
+}
+.theme-light .view-header button:is(.clickable-icon, .view-action):hover {
+  color: var(--icon-color-hover);
+  background: transparent;
+  box-shadow: none;
+}
+.theme-light button.mod-cta,
+.theme-light .checkbox-container.is-enabled {
+  background-color: #315fb0;
+  color: #ffffff;
+}
+.theme-light .checkbox-container:not(.is-enabled) {
+  background-color: #647ca4;
+}
+.theme-light :is(button, input, textarea, select, .clickable-icon, .tree-item-self, .workspace-tab-header):focus-visible {
+  outline: 2px solid #315fb0;
+  outline-offset: 2px;
+}
+.theme-light :is(.pdf-toolbar, .pdf-sidebar) {
+  background-color: #b8c9ea;
+  --icon-color: #2e4b7d;
+}
+.theme-light :is(.pdf-toolbar, .pdf-sidebar) :is(.clickable-icon, button) {
+  color: #2e4b7d;
+  opacity: 1;
+}
+
+/* Clear only Markdown backing layers so the workspace wash can show through. */
+.theme-light .workspace-tab-container:has(> .workspace-leaf > .workspace-leaf-content[data-type="markdown"]),
+.theme-light .workspace-leaf:has(> .workspace-leaf-content[data-type="markdown"]),
+.theme-light .workspace-leaf-content[data-type="markdown"],
+.theme-light .workspace-leaf-content[data-type="markdown"] :is(.view-content, .markdown-reading-view, .markdown-preview-view, .markdown-source-view.mod-cm6, .cm-editor, .cm-scroller) {
+  background: transparent;
+}
+/* Blur lives on a non-interactive backing layer, never on text or editor UI. */
+.theme-light .workspace-leaf-content[data-type="markdown"] > .view-content {
+  position: relative;
+  isolation: isolate;
+}
+.theme-light .workspace-leaf-content[data-type="markdown"] > .view-content::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background: var(--rainy-paper);
+  backdrop-filter: blur(var(--rainy-paper-blur)) saturate(115%);
+  -webkit-backdrop-filter: blur(var(--rainy-paper-blur)) saturate(115%);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.55);
+}
+.theme-light :is(.markdown-source-view.mod-cm6 .cm-content, .markdown-rendered) {
+  color: #182e56;
+  line-height: 1.78;
+}
+.theme-light :is(.markdown-rendered h1, .markdown-rendered h2, .markdown-rendered h3, .markdown-source-view.mod-cm6 .cm-header) {
+  font-weight: 650;
+  letter-spacing: -0.015em;
+}
+.theme-light .markdown-rendered h1 {
+  border-bottom: 1px solid #91a8d0;
+  padding-bottom: 0.4em;
+}
+.theme-light .markdown-rendered blockquote {
+  color: #344a70;
+  background-color: #dfe9fa;
+  border-radius: 0 8px 8px 0;
+  padding: 0.55em 0.9em;
+}
+.theme-light .markdown-rendered :is(hr, table, th, td) {
+  border-color: #91a8d0;
+}
+.theme-light .markdown-rendered th {
+  background-color: #d5e2f7;
+  color: #294577;
+}
+.theme-light :is(.search-result-file-matched-text, mark, .cm-s-obsidian span.cm-highlight) {
+  background-color: #d2eaff;
+  color: #17396f;
+}
+.theme-light .status-bar {
+  color: #344a70;
+}
+
+/* Graceful fallback when blur or transparency is unavailable/unwanted. */
+@supports not (backdrop-filter: blur(1px)) {
+  body.theme-light {
+    --rainy-paper: #edf2fc;
+    --rainy-glass: #b8c9ea;
+    --rainy-chrome: #dae6f7;
+    --rainy-floating: #edf2fc;
+  }
+}
+@media (prefers-reduced-transparency: reduce) {
+  body.theme-light {
+    --rainy-paper: #edf2fc;
+    --rainy-paper-blur: 0px;
+    --rainy-glass: #b8c9ea;
+    --rainy-chrome: #dae6f7;
+    --rainy-floating: #edf2fc;
+    --rainy-sheen: none;
+  }
+  .theme-light :is(.workspace-ribbon, .workspace-split, .workspace-tab-header-container, .view-header, .status-bar, .workspace-sidedock-vault-profile, .modal, .menu, .suggestion-container, .popover, .prompt) {
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+  }
+}
