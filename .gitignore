@@ -1,0 +1,6 @@
+# Local Obsidian QA vault, its generated fixtures, and machine-specific settings
+qa-vault/
+tmp/
+QA_CHECKLIST.md
+DEVELOPMENT.md
+.DS_Store

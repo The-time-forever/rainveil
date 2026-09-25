@@ -256,9 +256,9 @@ body.theme-light,
   opacity: 1;
 }
 
-/* Clear only Markdown backing layers so the workspace wash can show through. */
-.theme-light .workspace-tab-container:has(> .workspace-leaf > .workspace-leaf-content[data-type="markdown"]),
-.theme-light .workspace-leaf:has(> .workspace-leaf-content[data-type="markdown"]),
+/* Clear Markdown backing layers so the workspace wash can show through.
+   Keep this scoped to the view itself: ancestor `:has()` selectors are expensive
+   in large Canvas documents and aren't needed for the translucent backing. */
 .theme-light .workspace-leaf-content[data-type="markdown"],
 .theme-light .workspace-leaf-content[data-type="markdown"] :is(.view-content, .markdown-reading-view, .markdown-preview-view, .markdown-source-view.mod-cm6, .cm-editor, .cm-scroller) {
   background: transparent;

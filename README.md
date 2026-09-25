@@ -2,6 +2,18 @@
 
 A light-only Obsidian theme with a cool periwinkle palette, misted glass surfaces, and deep indigo text. Rainveil gives the workspace a soft, rainy-day atmosphere while keeping notes clear and readable.
 
+![Rainveil theme preview](./screenshot.jpg)
+
+## In Obsidian
+
+| Reading view | Canvas |
+| --- | --- |
+| ![Reading view](./screenshots/reading.jpg) | ![Canvas](./screenshots/canvas.jpg) |
+
+| Graph view | PDF view |
+| --- | --- |
+| ![Graph view](./screenshots/graph.jpg) | ![PDF view](./screenshots/pdf.jpg) |
+
 ## Features
 
 - Pale blue paper tones with indigo text and accents.
